@@ -7,17 +7,28 @@ public class Fichier {
 
     public static void main(String[] args) throws Exception {
 
-        File fichier = new File("monfichier.txt");
 
-        FileWriter fw = new FileWriter(fichier);
-
-        PrintWriter pw = new PrintWriter(fw);
-        pw.println(123);
-        pw.println(456);
-        pw.println(789);
-        pw.close();
+   ecrireDansFichier("test.txt","Bonjour",true);
+   ecrireDansFichier("test.txt","hello world",true);
+    }
 
 
+    public static void ecrireDansFichier(String Fichier, String texte,boolean ajoute) {
+    try {
+    File f =new File(Fichier);
+    FileWriter fw = null;
+    fw = new FileWriter(f,ajoute);
+    PrintWriter pw =new PrintWriter(fw);
+    pw.println(texte);
+    pw.close();
+    }
+    catch (IOException e){
+       e.printStackTrace();
+    }
 
     }
+
+
+
 }
+
